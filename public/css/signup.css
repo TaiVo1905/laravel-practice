@@ -1,0 +1,47 @@
+.sign-form {
+    width: 540px;
+    background-color: rgb(156, 159, 159);
+}
+
+.sign-form div input {
+    display: block;
+    width: 90%;
+    height: 28px;
+    margin: 0 auto;
+}
+
+.sign-form div label {
+    display: inline-block;
+    font-size: 18px;
+    margin: 8px 0 3px 5%;
+}
+
+input[type="submit"] {
+    background-color: blue;
+    width: 82px;
+    height: 32px;
+    margin: 5%;
+    border: none;
+    color: white;
+}
+
+.big-container {
+    margin: 0 auto;
+    width: 540px;
+    padding-top: 12px;
+}
+
+#result {
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+#result div {
+    padding-bottom: 6px;
+    padding-right: 3px;
+}
+
+.error {
+    margin: 3px 0 0 5%;
+    color: red;
+}
