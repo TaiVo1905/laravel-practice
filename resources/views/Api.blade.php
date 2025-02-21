@@ -8,7 +8,8 @@
 <body>
     @isset($data)
     @foreach($data as $item)
-        <div> {{ $item['title'] }} </div>
+        <div>Title: {{ $item['title'] }} </div>
+        <div>Body: {{ $item['body'] }} </div>
         @endforeach
         @endisset
 </body>
