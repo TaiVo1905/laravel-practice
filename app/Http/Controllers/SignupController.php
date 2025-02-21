@@ -11,6 +11,7 @@ class SignupController extends Controller
         return view("./signup");
     }
     public function signup(rulesRequest $request) {
+        
         $user = [
             'name' => $name = $request -> input('name'),
             'age' => $age = $request -> input('age'),
@@ -19,7 +20,11 @@ class SignupController extends Controller
             'web' => $web = $request -> input('web'),
             'address' => $address = $request -> input('address')
         ];
-
-        return view("./signup")->with('user', $user);
+        if (session()->has('sv')) {
+            session()->push('sv', $user);
+        } else {
+            session()->put('sv', [$user]);
+        }
+        return view("./signup")->with('users', session()->get('sv'));
     }
 }

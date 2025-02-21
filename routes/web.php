@@ -3,12 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\sumTwoNumbersController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\api\ApiController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 
+Route::get('/Api', [ApiController::class, 'getData']);
 Route::get('/signup', [SignupController::class, 'index']);
 Route::post('/signup', [SignupController::class, 'signup']);
 Route::get('/sumTwoNumbers', [sumTwoNumbersController::class, 'index']);

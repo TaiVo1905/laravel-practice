@@ -60,13 +60,15 @@
             <input type="submit" value="Ok">
         </form>
         <div id="result">
-            @isset($user)
-            <div>Name: <span id="results-Name"> {{ $user['name'] }}</span></div>
-            <div>Age: <span id="results-Age"> {{ $user['age'] }}</span></div>
-            <div>Date: <span id="results-Date"> {{ $user['date'] }}</span></div>
-            <div>Phone: <span id="results-Phone"> {{ $user['phone'] }}</span></div>
-            <div>Web: <span id="results-Web"> {{ $user['web'] }}</span></div>
-            <div>Address: <span id="results-Address"> {{ $user['address'] }}</span></div>
+            @isset($users)
+            @foreach ($users as $user)
+                <div>Name: <span id="results-Name"> {{ $user['name'] }}</span></div>
+                <div>Age: <span id="results-Age"> {{ $user['age'] }}</span></div>
+                <div>Date: <span id="results-Date"> {{ $user['date'] }}</span></div>
+                <div>Phone: <span id="results-Phone"> {{ $user['phone'] }}</span></div>
+                <div>Web: <span id="results-Web"> {{ $user['web'] }}</span></div>
+                <div>Address: <span id="results-Address"> {{ $user['address'] }}</span></div>
+            @endforeach
             @endisset
         </div>
     </div>
