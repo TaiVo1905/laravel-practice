@@ -33,3 +33,12 @@ Route::group(['prefix' => "tutorial"], function () {
 use App\Http\Controllers\Api\postController;
  
 Route::resource('/post', postController::class);
+
+
+//MiniTest place
+use App\Http\Controllers\ProductManagementController;
+Route::group(['prefix' => "miniTest"], function () {
+    Route::get("/form", [ProductManagementController::class, 'index'])->name('form.index');
+    Route::post("/save", [ProductManagementController::class, 'save']);
+    Route::get("/productList", [ProductManagementController::class, 'show']);
+});
