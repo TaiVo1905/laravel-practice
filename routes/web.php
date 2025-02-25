@@ -42,3 +42,7 @@ Route::group(['prefix' => "miniTest"], function () {
     Route::post("/save", [ProductManagementController::class, 'save']);
     Route::get("/productList", [ProductManagementController::class, 'show']);
 });
+
+//product api
+use App\Http\Controllers\ProductController;
+Route::resource('products', ProductController::class);
