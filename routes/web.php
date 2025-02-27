@@ -46,3 +46,17 @@ Route::group(['prefix' => "miniTest"], function () {
 //product api
 use App\Http\Controllers\ProductController;
 Route::resource('products', ProductController::class);
+
+//web sale
+use App\Http\Controllers\PageController;
+
+Route::get('/index', [PageController::class, 'getIndex'])->name('trang-chu');
+Route::get('/loai-san-pham', [PageController::class, 'getLoaiSp'])->name('loatsanpham');
+
+///cat web
+use App\Http\Controllers\EshopperController;
+Route::group(['prefix' => "shopper"], function () {
+    Route::get('/shop', [EshopperController::class, 'getIndex'])->name('eshopperShop');
+    Route::get('/shop/products', [EshopperController::class, 'getProducts'])->name('eshopperProducts');
+    Route::get('/shop/details', [EshopperController::class, 'getDetails'])->name('eshopperDetails');
+});
