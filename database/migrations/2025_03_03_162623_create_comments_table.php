@@ -12,16 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('username');
             $table->text('comment');
-            $table->foreignId('id_product')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_product');
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
-            $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 2');
+        });
+        DB::statement('ALTER TABLE comments AUTO_INCREMENT = 2');
     }
 
     /**

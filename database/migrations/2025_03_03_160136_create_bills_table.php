@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bills', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->foreignId('id_customer')->nullable()->default(null);
             $table->date('date_order');
@@ -21,9 +21,8 @@ return new class extends Migration
             $table->text('note');
             $table->timestamp('created_at')->nullable()->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('updated_at')->nullable()->useCurrent();
-            $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 60');
+        });
+        DB::statement('ALTER TABLE bills AUTO_INCREMENT = 60');
     }
 
     /**

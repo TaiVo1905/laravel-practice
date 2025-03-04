@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('password_resets', function (Blueprint $table) {
             $table->string('email');
             $table->id('token');
-            $table->timestamps('created_at')->useCurrent()->useCurrentOnUpdate();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+            $table->timestamp('created_at')->useCurrent()->useCurrentOnUpdate();
+        });
     }
 
     /**

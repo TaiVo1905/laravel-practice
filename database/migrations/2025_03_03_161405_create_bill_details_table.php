@@ -12,17 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bill_details', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->foreignId('id_bill');
             $table->foreignId('id_product');
             $table->unsignedInteger('quantity');
             $table->double('unit_price', 8, 2);
             $table->timestamp('created_at')->useCurrent()->useCurrentOnUpdate();
-            $table->timestamp('updated_at')->default('0000-00-00 00:00:00');
-            $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 64');
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+        });
+        DB::statement('ALTER TABLE bill_details AUTO_INCREMENT = 64');
     }
 
     /**

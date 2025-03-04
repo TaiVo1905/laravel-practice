@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('type_products', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('name', 100);
             $table->text('description');
             $table->string('image');
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 8');
+        });
+        DB::statement('ALTER TABLE type_products AUTO_INCREMENT = 8');
     }
 
     /**

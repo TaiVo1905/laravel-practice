@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('icon_id')->nullable()->default(null);
             $table->foreignId('monster_id')->unique();
             $table->primary('id');
-        })->collation('utf8mb4_unicode_ci')->charset('utf8mb4');
+        });
     }
 
     /**

@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('postalboxes', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('postal_name')->default(null);
             $table->foreignId('monster_id');
             $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+        });
     }
 
     /**

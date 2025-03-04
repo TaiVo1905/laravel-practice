@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('b_s', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('data');
             $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+        });
     }
 
     /**

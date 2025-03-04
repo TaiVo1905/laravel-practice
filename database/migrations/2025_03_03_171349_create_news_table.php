@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('content')->collation('utf8_unicode_ci');
             $table->string('image', 100)->collation('utf8_unicode_ci');
             $table->timestamp('create_at')->useCurrent()->useCurrentOnUpdate();
-            $table->timestamp('update_at')->default('0000-00-00 00:00:00');
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+            $table->timestamp('update_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+        });
     }
 
     /**

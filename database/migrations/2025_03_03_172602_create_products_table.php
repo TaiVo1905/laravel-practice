@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('name', 100)->default(null);
-            $table->foreignId('id_type')->default(null)->references('id')->on('id_type');
+            $table->foreignId('id_type');
             $table->text('description')->default(null);
             $table->float('unit_price')->default(null);
             $table->float('promotion_price')->default(null);
@@ -24,8 +24,8 @@ return new class extends Migration
             $table->tinyInteger('new')->default(0);
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 87');
+        });
+        DB::statement('ALTER TABLE products AUTO_INCREMENT = 87');
     }
 
     /**

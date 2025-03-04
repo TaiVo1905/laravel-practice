@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->integer('parent_id')->default(0);
             $table->unsignedInteger('lft')->default(null);
@@ -23,8 +23,7 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
             $table->timestamp('deleted_at')->nullable()->default(null);
-            $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+        });
     }
 
     /**

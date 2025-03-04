@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pages', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('template');
             $table->string('name');
@@ -23,8 +23,8 @@ return new class extends Migration
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
             $table->timestamp('deleted_at')->nullable()->default(null);
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 17');
+        });
+        DB::statement('ALTER TABLE pages AUTO_INCREMENT = 17');
     }
 
     /**

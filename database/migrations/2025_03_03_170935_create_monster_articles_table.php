@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('monster_articles', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->unsignedInteger('monster_id');
             $table->unsignedInteger('article_id');
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
             $table->timestamp('deleted_at')->nullable()->default(null);
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+        });
     }
 
     /**

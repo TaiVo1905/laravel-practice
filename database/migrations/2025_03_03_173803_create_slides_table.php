@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('slides', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('link', 100);
             $table->string('image', 100);
             $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 5');
+        });
+        DB::statement('ALTER TABLE slides AUTO_INCREMENT = 5');
     }
 
     /**

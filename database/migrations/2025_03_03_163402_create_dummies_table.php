@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('dummies', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('name');
             $table->text('description');
             $table->json('extras');
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
-            $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+        });
     }
 
     /**

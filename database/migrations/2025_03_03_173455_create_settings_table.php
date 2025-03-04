@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('key');
             $table->string('name');
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->tinyInteger('active');
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 5');
+        });
+        DB::statement('ALTER TABLE settings AUTO_INCREMENT = 5');
     }
 
     /**

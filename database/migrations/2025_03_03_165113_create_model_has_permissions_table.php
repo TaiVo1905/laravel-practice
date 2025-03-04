@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('model_has_permissions', function (Blueprint $table) {
-            $table->foreignId('permission_id')->references('id')->on('permissions')->onDelete('cascade');
+            $table->foreignId('permission_id');
             $table->string('model_type');
             $table->foreignId('model_id');
             $table->timestamps();
-            $table->primary('permission_id', 'model_id', 'model_type');
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+            $table->primary('permission_id', 'model_id');
+        });
     }
 
     /**

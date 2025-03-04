@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('remember_token', 100)->default(null);
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 135');
+        });
+        DB::statement('ALTER TABLE users AUTO_INCREMENT = 135');
     }
 
     /**

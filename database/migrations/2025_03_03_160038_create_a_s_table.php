@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('a_s', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
-            $table->foreignId('b_s_id')->references('id')->on('b_s')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('b_s_id');
             $table->timestamps();
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+        });
     }
 
     /**

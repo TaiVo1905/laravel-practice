@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('revisions', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->primary('id');
             $table->string('revisionable_type');
             $table->integer('revisionable_id');
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->text('new_value')->default(null);
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 10');
+        });
+        DB::statement('ALTER TABLE revisions AUTO_INCREMENT = 10');
     }
 
     /**

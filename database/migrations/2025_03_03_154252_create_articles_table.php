@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->increments()->unsigned();
+            $table->id();
             $table->foreignId('category_id');
             $table->string('title');
             $table->string('slug')->default('');
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->timestamp('updated_at')->nullable()->default(null);
             $table->timestamp('deleted_at')->nullable()->default(null);
             $table->primary('id');
-        })->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
-        DB::statement('ALTER TABLE wishlists AUTO_INCREMENT = 1032');
+        });
+        DB::statement('ALTER TABLE articles AUTO_INCREMENT = 1032');
     }
 
     /**
