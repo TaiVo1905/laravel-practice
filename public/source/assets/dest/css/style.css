@@ -850,6 +850,7 @@ strong {
 
 input[type="text"],
 input[type="email"],
+input[type="password"],
 input[type="url"],
 textarea {
     width: 100%;
@@ -886,6 +887,11 @@ input[type="checkbox"] + label span:first-child {
     position: absolute;
     left: 0;
     bottom: 3px;
+}
+
+.error {
+    color: red;
+    margin-left: 200px;
 }
 
 input[type="checkbox"]:checked + label {
@@ -2030,13 +2036,13 @@ ul.children ul.children li:hover > a {
     overflow: hidden;
     position: absolute;
     top: -3px;
-    right: -3px;
+    left: -3px;
 }
 
 .ribbon {
     color: #fff;
     text-align: center;
-    -webkit-transform: rotate(45deg);
+    -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);

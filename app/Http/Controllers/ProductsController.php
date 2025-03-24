@@ -76,9 +76,8 @@ class ProductsController extends Controller
     // Call funtion getIndexAdmin()
     public function getIndexAdmin() {
         $products = Products::all();
-        $type_product = Type_Products::all();
         $sumSold = Bill_detail::count();
-        return view('pageadmin.admin')->with(['products' => $products, 'type_product' => $type_product, 'sumSold' => $sumSold]);
+        return view('pageadmin.admin')->with(['products' => $products, 'sumSold' => $sumSold]);
     }
     
        

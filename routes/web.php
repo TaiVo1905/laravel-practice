@@ -60,6 +60,12 @@ Route::get('/type/{id}', [PageController::class, 'getLoaiSp'])->name('typeP');
 Route::get('/', [PageController::class, 'getIndex'])->name('trang-chu');
 Route::get('/contacts', [PageController::class, 'contacts'])->name('contacts');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/search', [PageController::class, 'search'])->name('search');
+Route::get('/signup', [PageController::class, 'GetFormSignUp'])->name('GetFormSignUp');
+Route::post('/handlesignup', [PageController::class, 'SignUp'])->name('SignUp');
+Route::get('/signin', [PageController::class, 'GetFormSignIn'])->name('GetFormSignIn');
+Route::post('/handlesignin', [PageController::class, 'SignIn'])->name('SignIn');
+Route::get('/logout', [PageController::class, 'LogOut'])->name('LogOut');
 
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);
 Route::get('/admin-export', [PageController::class, 'exportAdminProduct'])->name('export');

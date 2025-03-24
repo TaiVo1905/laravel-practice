@@ -7,13 +7,17 @@
 						<li><a href=""><i class="fa fa-phone"></i> 0163 296 7751</a></li>
 					</ul>
 				</div>
-				<div class="pull-right auto-width-right">
-					<ul class="top-details menu-beta l-inline">
-						<li><a href="#"><i class="fa fa-user"></i>Tài khoản</a></li>
-						<li><a href="#">Đăng kí</a></li>
-						<li><a href="#">Đăng nhập</a></li>
-					</ul>
-				</div>
+				<div class="pull-right auto-width-right">		
+					<ul class="top-details menu-beta l-inline">		
+					@if(Session::has('user'))		
+					<li><a href="logout"><i class="fa fa-user"></i>{{Session('user')->name}}</a></li>		
+					@else		
+					<li><a href="signup">Đăng kí</a></li>		
+					<li><a href="signin">Đăng nhập</a></li>		
+					@endif		
+					</ul>		
+				</div>		
+
 				<div class="clearfix"></div>
 			</div> <!-- .container -->
 		</div> <!-- .header-top -->
@@ -25,7 +29,7 @@
 				<div class="pull-right beta-components space-left ov">
 					<div class="space10">&nbsp;</div>
 					<div class="beta-comp">
-						<form role="search" method="get" id="searchform" action="/">
+						<form role="search" action="search" method="get" id="searchform" action="/">
 					        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
 					        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
 						</form>
