@@ -5,6 +5,7 @@ use App\Models\Slide;
 use App\Models\Products;
 use App\Models\Users;
 use App\Models\Comments;
+use App\Models\Cart;
 use App\Models\Bill_detail;
 use Illuminate\Http\Request;
 use App\Http\Requests\SignUpRequest;
@@ -123,4 +124,36 @@ class PageController extends Controller
         return redirect('/');
     }
     
+    public function getAddToCart(Request $req, $id){																					
+        if (Session::has('user')) {																					
+            if (Products::find($id)) {																					
+                $product = Products::find($id);																					
+                $oldCart = Session('cart') ? Session::get('cart') : null;																					
+                $cart = new Cart($oldCart);																					
+                $cart->add($product, $id);																		
+                $req->session()->put('cart', $cart);																					
+                return redirect()->back();																					
+            } else {																					
+                return '<script>alert("Không tìm thấy sản phẩm này.");window.location.assign("/");</script>';																					
+            }																					
+        } else {																					
+            return '<script>alert("Vui lòng đăng nhập để sử dụng chức năng này.");window.location.assign("/login");</script>';																					
+        }																					
+    }
+    
+    public function getDelItemCart($id){
+        $oldCart = Session::has('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        if(count($cart->items)>0){
+        Session::put('cart',$cart);
+
+        }
+        else{
+            Session::forget('cart');
+        }
+        return redirect()->back();
+    }
+																					
+
 }

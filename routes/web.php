@@ -66,6 +66,8 @@ Route::post('/handlesignup', [PageController::class, 'SignUp'])->name('SignUp');
 Route::get('/signin', [PageController::class, 'GetFormSignIn'])->name('GetFormSignIn');
 Route::post('/handlesignin', [PageController::class, 'SignIn'])->name('SignIn');
 Route::get('/logout', [PageController::class, 'LogOut'])->name('LogOut');
+Route::get('add-to-cart/{id}', [PageController::class, 'getAddToCart'])->name('themgiohang');												
+Route::get('del-cart/{id}', [PageController::class, 'getDelItemCart'])->name('xoagiohang');
 
 Route::get('/admin', [PageController::class, 'getIndexAdmin']);
 Route::get('/admin-export', [PageController::class, 'exportAdminProduct'])->name('export');
